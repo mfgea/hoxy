@@ -1,15 +1,15 @@
 {
-  "name": "hoxy",
+  "name": "@mfgea/hoxy",
   "version": "3.3.1",
   "author": "Greg Reimer <gregreimer@gmail.com>",
   "description": "Web-hacking proxy API for node",
   "repository": {
     "type": "git",
-    "url": "git@github.com:greim/hoxy.git"
+    "url": "git@github.com:mfgea/hoxy.git"
   },
   "main": "./lib/main",
   "scripts": {
-    "prepublish": "npm run compile",
+    "prepare": "npm run compile",
     "test": "mocha --compilers js:babel/register --timeout 3000",
     "compile": "babel src --out-dir lib --optional runtime",
     "lint": "eslint ./src",
