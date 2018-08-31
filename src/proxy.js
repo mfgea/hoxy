@@ -245,8 +245,14 @@ export default class Proxy extends EventEmitter {
           toClient.writeHead(fromServer.statusCode, fromServer.headers)
           fromServer.pipe(toClient)
         })
+        toServer.on('error', (err) => {
+          this.emit('error', err);
+        })
         fromClient.pipe(toServer)
       })
+      this._tlsSpoofingServer.on('error', (err) => {
+        this.emit('error', err);
+      });
     }
   }
 
