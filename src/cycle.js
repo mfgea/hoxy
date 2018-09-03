@@ -148,6 +148,7 @@ export default class Cycle extends EventEmitter {
     this._response = new Response()
     this._request.on('log', log => this.emit('log', log))
     this._response.on('log', log => this.emit('log', log))
+    staticServer.on('error', err => this.emit('error', err))
   }
 
   data(name, val) {
